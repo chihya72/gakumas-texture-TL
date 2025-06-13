@@ -1,5 +1,5 @@
 #!/bin/bash
-# Gakumas 图像替换系统 - 发布脚本
+# Gakumas 贴图翻译插件 - 发布脚本
 # 使用方法: ./release.sh v1.0.0
 
 set -e

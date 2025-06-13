@@ -1,4 +1,4 @@
-# Gakumas 图像替换系统 (XInput版本)
+# Gakumas 贴图翻译插件 (XInput版本)
 
 一个基于DLL劫持技术的Unity IL2CPP游戏图像资源替换系统，专为学园偶像大师 (Gakumas) 游戏设计，支持漫画、报告、UI按钮和教程图像的本地化替换。
 
@@ -32,7 +32,7 @@
    gakumas.exe所在目录/
    ├── gakumas.exe
    ├── version.dll              # chinosk汉化补丁 (可选)
-   ├── xinput1_3.dll            # 图像替换系统
+   ├── xinput1_3.dll            # 贴图翻译插件
    └── gakumas-local-texture/   # 资源目录
        ├── asset_mapping.txt    # 配置文件
        ├── comic/              # 漫画图像
@@ -91,7 +91,7 @@ gakumas-texture-TL/
 │   ├── tutorial/                        # 教程图像
 │   └── logs/                            # 自动生成日志
 └── prompt_md/                           # 开发文档
-    ├── Gakumas图像替换系统 - 完整项目记录.md
+    ├── Gakumas贴图翻译插件 - 完整项目记录.md
     ├── UI_Tutorial_扩展开发记录.md
     └── Chinosk_ida_functions_reference.md
 ```
@@ -144,98 +144,6 @@ img_tutorial_produce_01_first-002
 - **照片名称**: `img_general_report_photo-name_*`  
 - **背景图表**: `img_general_report_bg_*`
 - **角色头像**: `img_general_report_akapen_*`
-
-## 🛠️ 编译说明
-
-### 🚀 自动化构建 (推荐)
-
-项目配置了GitHub Actions自动构建，当推送v开头的标签时会自动编译并发布：
-
-```bash
-# 创建并推送标签触发自动构建
-git tag v1.0.0
-git push origin v1.0.0
-
-# 自动构建将会：
-# 1. 编译 xinput1_3.dll
-# 2. 打包 dll 和 gakumas-local-texture 目录
-# 3. 创建 GitHub Release
-# 4. 上传压缩包到 Release 页面
-```
-
-**构建产物**: `gakumas-texture-replacement-v1.0.0.zip`
-- 包含编译好的 `xinput1_3.dll`
-- 包含完整的 `gakumas-local-texture` 目录结构
-- 包含安装说明 `README.txt`
-
-### 🔧 本地编译
-
-#### 环境要求
-- Visual Studio 2022 (MSVC v143)
-- Windows SDK 10.0
-- C++17 标准
-
-#### Visual Studio编译
-```powershell
-# 在Visual Studio中
-1. 打开 xinput1_3.vcxproj
-2. 选择 Release | x64 配置
-3. 生成 -> 重新生成解决方案
-4. 输出: x64\Release\xinput1_3.dll
-```
-
-#### 命令行编译 (备用)
-```powershell
-cl /LD /EHsc /std:c++17 xinput1_3_with_general_report.cpp ^
-   /Fe:xinput1_3.dll /link /DEF:xinput1_3.def ^
-   kernel32.lib user32.lib psapi.lib MinHook/lib/libMinHook.x64.lib
-```
-
-### 🎯 快速本地构建
-
-项目提供了便捷的构建脚本：
-
-```powershell
-# Windows批处理脚本
-.\build.bat           # 编译并准备发布包
-.\build.bat clean     # 清理构建文件
-```
-
-构建输出：
-- `build\xinput1_3.dll` - 编译的DLL文件
-- `dist\release-package\` - 完整发布包
-
-### 📦 发布流程
-
-#### 自动发布 (GitHub Actions)
-
-使用发布脚本自动创建标签并触发构建：
-
-```powershell
-# PowerShell (推荐)
-.\release.ps1 v1.0.0
-
-# Linux/macOS
-chmod +x release.sh
-./release.sh v1.0.0
-```
-
-#### 手动发布
-
-```bash
-# 1. 创建标签
-git tag v1.0.0
-
-# 2. 推送标签
-git push origin v1.0.0
-
-# 3. GitHub Actions自动构建并发布
-```
-
-**发布包内容**:
-- `xinput1_3.dll` - 主要DLL文件
-- `gakumas-local-texture/` - 完整资源目录
-- `README.txt` - 安装说明
 
 ## 📋 使用说明
 
@@ -292,12 +200,6 @@ PENDING_EXPIRE_TIME = 60000  // 1分钟待处理过期时间
    检查日志: 是否有 "REPLACEMENT MATCHED" 消息
    ```
 
-4. **游戏卡顿**
-   ```
-   原因: 监控资源过多
-   解决: 只配置需要替换的资源，移除不需要的配置行
-   ```
-
 ### 调试模式
 
 系统自动创建控制台窗口显示实时日志，标题为：
@@ -352,7 +254,7 @@ Gakumas - Comic + General Report + UI + Tutorial Replacement System (XInput Opti
 ## 📚 相关资源
 
 ### 技术参考
-- [chinosk/Gakumas-Localify](https://github.com/chinosk/Gakumas-Localify) - 原始汉化补丁
+- [chinosk6/gakuen-imas-localify](https://github.com/chinosk6/gakuen-imas-localify) - 原始汉化补丁
 - [TsudaKageyu/minhook](https://github.com/TsudaKageyu/minhook) - Hook库
 - [Unity IL2CPP Documentation](https://docs.unity3d.com/Manual/IL2CPP.html)
 

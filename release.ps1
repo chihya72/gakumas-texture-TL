@@ -1,4 +1,4 @@
-# Gakumas 图像替换系统 - 发布脚本 (PowerShell版本)
+# Gakumas 贴图翻译插件 - 发布脚本 (PowerShell版本)
 # 使用方法: .\release.ps1 v1.0.0
 
 param(

@@ -70,7 +70,7 @@ jobs:
         Copy-Item "gakumas-local-texture" "release-package\gakumas-local-texture" -Recurse
         
         # 创建使用说明文件
-        $readmeContent = "# Gakumas 图像替换系统 Release Package`n`n"
+        $readmeContent = "# Gakumas 贴图翻译插件 Release Package`n`n"
         $readmeContent += "## 包含文件`n"
         $readmeContent += "- xinput1_3.dll - 主要DLL文件`n"
         $readmeContent += "- gakumas-local-texture/ - 资源目录和配置文件`n`n"
@@ -126,9 +126,9 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ steps.tag.outputs.tag_name }}
-        name: "Gakumas 图像替换系统 ${{ steps.tag.outputs.tag_name }}"
+        name: "Gakumas 贴图翻译插件 ${{ steps.tag.outputs.tag_name }}"
         body: |
-          ## Gakumas 图像替换系统 ${{ steps.tag.outputs.tag_name }}
+          ## Gakumas 贴图翻译插件 ${{ steps.tag.outputs.tag_name }}
           
           ### 发布内容
           - `xinput1_3.dll` - 主要DLL文件
@@ -141,17 +141,12 @@ jobs:
           - UI按钮图像替换 (img_general_ui_*_btn*)
           - 教程图像替换 (img_tutorial_*)
           - 与chinosk version.dll兼容运行
-          
-          ### 系统要求
-          - Windows 10/11 x64
-          - Visual C++ Redistributable 2022 x64
-          - 学园偶像大师 (Gakumas) 游戏
-          
+         
           ### 安装方法
           1. 下载并解压 `${{ steps.archive.outputs.archive_name }}`
           2. 将 `xinput1_3.dll` 复制到游戏目录
           3. 将 `gakumas-local-texture` 文件夹复制到游戏目录
-          4. 编辑配置文件并添加你的替换图像
+          4. 自由编辑配置文件并添加你的替换图像
           5. 启动游戏
           
           ### 详细文档

@@ -1,5 +1,5 @@
 @echo off
-REM Gakumas 图像替换系统 - 本地构建脚本
+REM Gakumas 贴图翻译插件 - 本地构建脚本
 REM 使用方法: build.bat [clean]
 
 echo ===============================================
@@ -67,7 +67,7 @@ copy "build\xinput1_3.dll" "dist\release-package\"
 xcopy "gakumas-local-texture" "dist\release-package\gakumas-local-texture\" /s /e /i
 
 REM 创建使用说明
-echo # Gakumas 图像替换系统 Release Package > "dist\release-package\README.txt"
+echo # Gakumas 贴图翻译插件 Release Package > "dist\release-package\README.txt"
 echo. >> "dist\release-package\README.txt"
 echo ## 安装说明 >> "dist\release-package\README.txt"
 echo 1. 将 xinput1_3.dll 复制到 gakumas.exe 所在目录 >> "dist\release-package\README.txt"

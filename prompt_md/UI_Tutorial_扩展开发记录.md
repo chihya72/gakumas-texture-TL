@@ -3,9 +3,9 @@
 ## 📋 对话概览
 
 **开发日期**: 2025年6月13日  
-**目标**: 扩展现有的图像替换系统，支持UI和Tutorial资源  
+**目标**: 扩展现有的贴图翻译插件，支持UI和Tutorial资源  
 **开发基础**: 已有的Comic + General Report替换系统 (XInput版本)  
-**最终成果**: 优化的全功能图像替换系统，支持Comic、General Report、UI按钮和Tutorial图像
+**最终成果**: 优化的全功能贴图翻译插件，支持Comic、General Report、UI按钮和Tutorial图像
 
 ## 🎯 开发目标与背景
 
@@ -243,7 +243,7 @@ img_tutorial_produce_01_first-002=custom_images/tutorial/produce_01_first_002_cn
 ## 📚 相关文档更新
 
 ### 需要更新的文档
-1. **主项目记录**: `Gakumas图像替换系统 - 完整项目记录.md`
+1. **主项目记录**: `Gakumas贴图翻译插件 - 完整项目记录.md`
 2. **IDA分析指南**: `UI_Tutorial_IDA_Analysis_Guide.md`
 
 ### 新增文档
@@ -253,7 +253,7 @@ img_tutorial_produce_01_first-002=custom_images/tutorial/produce_01_first_002_cn
 
 ## 🏆 总结
 
-本次对话成功完成了从现有Comic+General Report系统到全功能图像替换系统的扩展开发：
+本次对话成功完成了从现有Comic+General Report系统到全功能贴图翻译插件的扩展开发：
 
 1. **验证了技术可行性**: UI和Tutorial资源确实可以通过现有Hook系统处理
 2. **发现了实际资源**: 获得了真实的UI按钮和Tutorial资源名称
