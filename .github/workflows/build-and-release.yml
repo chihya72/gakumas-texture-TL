@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'  # 触发条件：推送v开头的标签，如v1.0.0
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build-and-release:
     runs-on: windows-latest
@@ -119,7 +123,7 @@ jobs:
       shell: pwsh
     
     - name: Create Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ steps.tag.outputs.tag_name }}
         name: "Gakumas 图像替换系统 ${{ steps.tag.outputs.tag_name }}"
