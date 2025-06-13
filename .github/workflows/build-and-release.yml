@@ -34,15 +34,20 @@ jobs:
     - name: Build DLL
       run: |
         # 使用MSBuild编译项目
-        msbuild xinput1_3.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutputPath=..\build\
+        msbuild xinput1_3.vcxproj /p:Configuration=Release /p:Platform=x64
         
         # 检查编译是否成功
-        if (Test-Path "build\xinput1_3.dll") {
+        if (Test-Path "x64\Release\xinput1_3.dll") {
           Write-Host "[SUCCESS] Build successful: xinput1_3.dll created"
           # 获取文件信息
-          $fileInfo = Get-Item "build\xinput1_3.dll"
+          $fileInfo = Get-Item "x64\Release\xinput1_3.dll"
           Write-Host "File size: $($fileInfo.Length) bytes"
           Write-Host "Created: $($fileInfo.CreationTime)"
+          
+          # 创建build目录并复制文件，保持后续步骤兼容
+          New-Item -ItemType Directory -Path "build" -Force
+          Copy-Item "x64\Release\xinput1_3.dll" "build\xinput1_3.dll"
+          Write-Host "[INFO] File copied to build directory for packaging"
         } else {
           Write-Error "[ERROR] Build failed: xinput1_3.dll not found"
           exit 1
