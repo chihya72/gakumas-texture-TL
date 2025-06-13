@@ -137,7 +137,7 @@ jobs:
           
           ### 支持的功能
           - 漫画图像替换 (img_general_comic_*)
-          - General Report图像替换 (img_general_report_*)
+          - 培育报告图像替换 (img_general_report_*)
           - UI按钮图像替换 (img_general_ui_*_btn*)
           - 教程图像替换 (img_tutorial_*)
           - 与chinosk version.dll兼容运行
