@@ -1,0 +1,38 @@
+# =====【Gakumas 图像替换配置文件 - 新目录结构】=====
+# 配置文件位置: gakumas-local-texture/asset_mapping.txt
+# 图像文件相对路径基于 gakumas-local-texture/ 目录
+# 
+# 格式: 游戏资源名=相对路径
+# 例如: img_general_comic4_0008=comic/img_general_comic4_0008.png
+#
+# =====【漫画资源】=====
+# 基础漫画图像
+img_general_comic4_0008=comic/img_general_comic4_0008.png
+# img_general_comic_0001=comic/my_comic_01.png
+# img_general_comic_0002=comic/my_comic_02.jpg
+
+# =====【General Report资源】=====
+# 文本图像
+# img_general_report_text_ttmr-001=general_report/text/ttmr-001_cn.png
+# img_general_report_photo-name_ttmr-001=general_report/names/ttmr-001_cn.png
+
+# 背景图表
+# img_general_report_bg_chart=general_report/backgrounds/chart_cn.png
+
+# =====【UI按钮资源 - 基于实际检测结果】=====
+# img_general_ui_produce-1_btn-small=ui/produce_1_btn_small_cn.png
+# img_general_ui_produce-2_btn-small=ui/produce_2_btn_small_cn.png  
+# img_general_ui_produce-3_btn-small=ui/produce_3_btn_small_cn.png
+# img_general_ui_produce-nia_btn=ui/produce_nia_btn_cn.png
+# img_general_ui_produce-nia-2_btn=ui/produce_nia_2_btn_cn.png
+
+# =====【Tutorial资源 - 基于实际检测结果】=====
+# img_tutorial_produce_01_first-001=tutorial/produce_01_first_001_cn.png
+# img_tutorial_produce_01_first-002=tutorial/produce_01_first_002_cn.png
+
+# =====【说明】=====
+# 1. 以 # 开头的行是注释
+# 2. 相对路径基于 gakumas-local-texture/ 目录
+# 3. 支持 PNG、JPG、JPEG 格式
+# 4. 只配置需要替换的资源，提升性能
+# 5. 日志文件将自动生成在 gakumas-local-texture/logs/ 目录，文件名包含时间戳
