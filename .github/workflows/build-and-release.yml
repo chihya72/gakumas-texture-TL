@@ -1,0 +1,166 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # 触发条件：推送v开头的标签，如v1.0.0
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # 获取完整历史，用于获取标签信息
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Setup Visual Studio components
+      uses: microsoft/setup-msbuild@v2
+      with:
+        vs-version: '17.0'
+    
+    - name: Get tag name
+      id: tag
+      run: |
+        $tag = $env:GITHUB_REF -replace 'refs/tags/', ''
+        echo "tag_name=$tag" >> $env:GITHUB_OUTPUT
+        echo "Tag name: $tag"
+      shell: pwsh
+    
+    - name: Build DLL
+      run: |
+        # 使用MSBuild编译项目
+        msbuild xinput1_3.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutputPath=..\build\
+        
+        # 检查编译是否成功
+        if (Test-Path "build\xinput1_3.dll") {
+          Write-Host "[SUCCESS] Build successful: xinput1_3.dll created"
+          # 获取文件信息
+          $fileInfo = Get-Item "build\xinput1_3.dll"
+          Write-Host "File size: $($fileInfo.Length) bytes"
+          Write-Host "Created: $($fileInfo.CreationTime)"
+        } else {
+          Write-Error "[ERROR] Build failed: xinput1_3.dll not found"
+          exit 1
+        }
+      shell: pwsh
+    
+    - name: Prepare release package
+      run: |
+        # 创建发布目录
+        New-Item -ItemType Directory -Path "release-package" -Force
+        
+        # 复制编译好的DLL
+        Copy-Item "build\xinput1_3.dll" "release-package\"
+        
+        # 复制资源目录
+        Copy-Item "gakumas-local-texture" "release-package\gakumas-local-texture" -Recurse
+        
+        # 创建使用说明文件
+        $readmeContent = "# Gakumas 图像替换系统 Release Package`n`n"
+        $readmeContent += "## 包含文件`n"
+        $readmeContent += "- xinput1_3.dll - 主要DLL文件`n"
+        $readmeContent += "- gakumas-local-texture/ - 资源目录和配置文件`n`n"
+        $readmeContent += "## 安装说明`n`n"
+        $readmeContent += "1. 将 xinput1_3.dll 复制到 gakumas.exe 所在目录`n"
+        $readmeContent += "2. 将 gakumas-local-texture 文件夹复制到 gakumas.exe 所在目录`n"
+        $readmeContent += "3. 可自由编辑 gakumas-local-texture/asset_mapping.txt 配置要替换的图像`n"
+        $readmeContent += "4. 将替换图像放入对应的子目录中`n"
+        $readmeContent += "5. 启动游戏即可生效`n`n"
+        $readmeContent += "## 详细文档`n"
+        $readmeContent += "请查看项目主页获取完整的使用文档和配置说明。`n`n"
+        $readmeContent += "---`n"
+        $readmeContent += "构建版本: ${{ steps.tag.outputs.tag_name }}`n"
+        $readmeContent += "构建时间: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss UTC')"
+        
+        $readmeContent | Out-File -FilePath "release-package\README.txt" -Encoding UTF8
+        
+        # 显示打包内容
+        Write-Host "[INFO] Release package contents:"
+        Get-ChildItem "release-package" -Recurse | ForEach-Object {
+          Write-Host "  $($_.FullName.Replace((Get-Location).Path + '\release-package\', ''))"
+        }
+      shell: pwsh
+    
+    - name: Create ZIP archive
+      run: |
+        $tagName = "${{ steps.tag.outputs.tag_name }}"
+        $archiveName = "gakumas-texture-replacement-$tagName.zip"
+        
+        # 创建ZIP压缩包
+        Compress-Archive -Path "release-package\*" -DestinationPath $archiveName
+        
+        # 显示压缩包信息
+        $zipInfo = Get-Item $archiveName
+        Write-Host "[SUCCESS] Archive created: $archiveName"
+        Write-Host "Archive size: $([math]::Round($zipInfo.Length / 1MB, 2)) MB"
+        
+        # 设置输出变量
+        echo "archive_name=$archiveName" >> $env:GITHUB_OUTPUT
+      shell: pwsh
+      id: archive
+    
+    - name: Get commit message
+      id: commit
+      run: |
+        $commitMessage = git log -1 --pretty=%B
+        # 转义特殊字符
+        $commitMessage = $commitMessage -replace '"', '\"' -replace '\r?\n', '\n'
+        echo "message=$commitMessage" >> $env:GITHUB_OUTPUT
+      shell: pwsh
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.tag.outputs.tag_name }}
+        name: "Gakumas 图像替换系统 ${{ steps.tag.outputs.tag_name }}"
+        body: |
+          ## Gakumas 图像替换系统 ${{ steps.tag.outputs.tag_name }}
+          
+          ### 发布内容
+          - `xinput1_3.dll` - 主要DLL文件
+          - `gakumas-local-texture/` - 完整资源目录结构
+          - `README.txt` - 安装说明
+          
+          ### 支持的功能
+          - 漫画图像替换 (img_general_comic_*)
+          - General Report图像替换 (img_general_report_*)
+          - UI按钮图像替换 (img_general_ui_*_btn*)
+          - 教程图像替换 (img_tutorial_*)
+          - 与chinosk version.dll兼容运行
+          
+          ### 系统要求
+          - Windows 10/11 x64
+          - Visual C++ Redistributable 2022 x64
+          - 学园偶像大师 (Gakumas) 游戏
+          
+          ### 安装方法
+          1. 下载并解压 `${{ steps.archive.outputs.archive_name }}`
+          2. 将 `xinput1_3.dll` 复制到游戏目录
+          3. 将 `gakumas-local-texture` 文件夹复制到游戏目录
+          4. 编辑配置文件并添加你的替换图像
+          5. 启动游戏
+          
+          ### 详细文档
+          请查看 [项目主页](https://github.com/${{ github.repository }}) 获取完整的使用文档。
+          
+          ---
+          **最新提交**: ${{ steps.commit.outputs.message }}
+        files: |
+          ${{ steps.archive.outputs.archive_name }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Build Summary
+      run: |
+        Write-Host "[SUCCESS] Release created successfully!"
+        Write-Host "Package: ${{ steps.archive.outputs.archive_name }}"
+        Write-Host "Tag: ${{ steps.tag.outputs.tag_name }}"
+        Write-Host "Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ steps.tag.outputs.tag_name }}"
+      shell: pwsh

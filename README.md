@@ -147,12 +147,35 @@ img_tutorial_produce_01_first-002
 
 ## 🛠️ 编译说明
 
-### 环境要求
+### 🚀 自动化构建 (推荐)
+
+项目配置了GitHub Actions自动构建，当推送v开头的标签时会自动编译并发布：
+
+```bash
+# 创建并推送标签触发自动构建
+git tag v1.0.0
+git push origin v1.0.0
+
+# 自动构建将会：
+# 1. 编译 xinput1_3.dll
+# 2. 打包 dll 和 gakumas-local-texture 目录
+# 3. 创建 GitHub Release
+# 4. 上传压缩包到 Release 页面
+```
+
+**构建产物**: `gakumas-texture-replacement-v1.0.0.zip`
+- 包含编译好的 `xinput1_3.dll`
+- 包含完整的 `gakumas-local-texture` 目录结构
+- 包含安装说明 `README.txt`
+
+### 🔧 本地编译
+
+#### 环境要求
 - Visual Studio 2022 (MSVC v143)
 - Windows SDK 10.0
 - C++17 标准
 
-### 编译步骤
+#### Visual Studio编译
 ```powershell
 # 在Visual Studio中
 1. 打开 xinput1_3.vcxproj
@@ -161,12 +184,58 @@ img_tutorial_produce_01_first-002
 4. 输出: x64\Release\xinput1_3.dll
 ```
 
-### 手动编译 (备用)
+#### 命令行编译 (备用)
 ```powershell
 cl /LD /EHsc /std:c++17 xinput1_3_with_general_report.cpp ^
    /Fe:xinput1_3.dll /link /DEF:xinput1_3.def ^
    kernel32.lib user32.lib psapi.lib MinHook/lib/libMinHook.x64.lib
 ```
+
+### 🎯 快速本地构建
+
+项目提供了便捷的构建脚本：
+
+```powershell
+# Windows批处理脚本
+.\build.bat           # 编译并准备发布包
+.\build.bat clean     # 清理构建文件
+```
+
+构建输出：
+- `build\xinput1_3.dll` - 编译的DLL文件
+- `dist\release-package\` - 完整发布包
+
+### 📦 发布流程
+
+#### 自动发布 (GitHub Actions)
+
+使用发布脚本自动创建标签并触发构建：
+
+```powershell
+# PowerShell (推荐)
+.\release.ps1 v1.0.0
+
+# Linux/macOS
+chmod +x release.sh
+./release.sh v1.0.0
+```
+
+#### 手动发布
+
+```bash
+# 1. 创建标签
+git tag v1.0.0
+
+# 2. 推送标签
+git push origin v1.0.0
+
+# 3. GitHub Actions自动构建并发布
+```
+
+**发布包内容**:
+- `xinput1_3.dll` - 主要DLL文件
+- `gakumas-local-texture/` - 完整资源目录
+- `README.txt` - 安装说明
 
 ## 📋 使用说明
 
