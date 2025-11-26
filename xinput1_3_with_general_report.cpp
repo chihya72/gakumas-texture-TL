@@ -54,6 +54,8 @@ typedef struct _XINPUT_CAPABILITIES {
 #include <thread>
 #include <chrono>
 #include <vector>
+#include <algorithm>
+#include <cctype>
 
 // MinHook library
 #include "MinHook/include/MinHook.h"
@@ -70,9 +72,16 @@ std::string g_baseDir = "gakumas-local-texture";  // 新的基础目录
 bool IsTargetGameProcess();
 void WriteLog(const char* message);
 void WriteLogf(const char* format, ...);
+void WriteLogConsole(const char* message);
+void WriteLogfConsole(const char* format, ...);
 void InitializeLogFile();
 void CreateDirectory(const std::string& path);
 DWORD WINAPI ComicHookInstallThread(LPVOID lpParam);
+
+// Video/Live Scene tracking functions
+void LogVideoPlayback(const std::string& characterId, const std::string& idolCardId, 
+                     const std::string& costumeId, const std::string& costumeHeadId);
+bool InstallVideoHooks();
 
 // General Report Hook declarations
 bool ShouldReplaceGeneralReport(const std::string& assetName, std::string& replacementPath);
@@ -99,10 +108,16 @@ typedef void* (*AssetBundle_LoadAssetAsync_t)(void* bundle, void* name, void* ty
 typedef void* (*AssetBundleRequest_GetResult_t)(void* request);
 typedef void* (*Resources_Load_t)(void* path, void* type);
 
+// Video/Live Scene function signature (sub_18014192C equivalent)
+typedef void* (*MoveLiveScene_t)(void* param1, void* param2, void* param3, void* param4, void* param5, void* param6);
+
 // Original function pointers
 AssetBundle_LoadAssetAsync_t Original_AssetBundle_LoadAssetAsync = nullptr;
 AssetBundleRequest_GetResult_t Original_AssetBundleRequest_GetResult = nullptr;
 Resources_Load_t Original_Resources_Load = nullptr;
+
+// Video/Live Scene function pointer
+MoveLiveScene_t Original_MoveLiveScene = nullptr;
 
 // IL2CPP String structure
 struct Il2CppString {
@@ -184,6 +199,12 @@ void WriteLog(const char* message) {
         fprintf(g_logFile, "[ComicReplace-XInput-Optimized] %s\n", message);
         fflush(g_logFile);
     }
+    // 控制台不输出调试日志
+}
+
+void WriteLogConsole(const char* message) {
+    // 既输出到文件也输出到控制台（用于重要消息）
+    WriteLog(message);
     printf("[ComicReplace-XInput-Optimized] %s\n", message);
 }
 
@@ -194,6 +215,15 @@ void WriteLogf(const char* format, ...) {
     vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
     WriteLog(buffer);
+}
+
+void WriteLogfConsole(const char* format, ...) {
+    char buffer[1024];
+    va_list args;
+    va_start(args, format);
+    vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
+    WriteLogConsole(buffer);
 }
 
 // Check if current process is the target game process
@@ -361,6 +391,31 @@ void* FindIL2CPPMethod(const char* assemblyName, const char* namespaceName, cons
     return nullptr;
 }
 
+// ===== VIDEO/LIVE SCENE DETECTION FUNCTIONS =====
+
+// 记录视频播放信息的函数（保留用于其他可能的用途）
+void LogVideoPlayback(const std::string& characterId, const std::string& idolCardId, 
+                     const std::string& costumeId, const std::string& costumeHeadId) {
+    WriteLog("=== VIDEO PLAYBACK DETECTED ===");
+    WriteLogf("Character ID: %s", characterId.c_str());
+    WriteLogf("Idol Card ID: %s", idolCardId.c_str());
+    WriteLogf("Costume ID: %s", costumeId.c_str());
+    WriteLogf("Costume Head ID: %s", costumeHeadId.c_str());
+    WriteLog("===============================");
+    
+    // 同时输出到控制台
+    WriteLogfConsole("*** VIDEO PLAYBACK: CharID=%s, IdolCardID=%s, CostumeID=%s, CostumeHeadID=%s ***", 
+                     characterId.c_str(), idolCardId.c_str(), costumeId.c_str(), costumeHeadId.c_str());
+}
+
+// 简化的视频Hook安装函数 - 现在主要通过AssetBundle Hook工作
+bool InstallVideoHooks() {
+    WriteLog("Video detection enabled through AssetBundle hooks...");
+    WriteLog("Video/Live scene asset detection is now integrated with texture replacement system");
+    WriteLogConsole("*** Video asset detection ACTIVE ***");
+    return true; // 总是返回true，因为我们通过现有的AssetBundle Hook工作
+}
+
 // ===== GENERAL REPORT HOOK FUNCTIONS =====
 
 // 专门处理general_report图像的函数
@@ -526,170 +581,174 @@ bool LoadImageFile(const std::string& filePath, std::vector<unsigned char>& imag
     }
     
     WriteLogf("Successfully loaded image file: %s (%ld bytes)", filePath.c_str(), fileSize);
+    WriteLogfConsole("Successfully loaded image file: %s (%ld bytes)", filePath.c_str(), fileSize);
     return true;
 }
 
-// Create Unity Texture2D from image data with actual image loading
+// IMPROVED: Create Unity Texture2D from image data with enhanced stability (借鉴新代码的改进)
 void* CreateUnityTexture2D(const std::vector<unsigned char>& imageData, const std::string& fileName) {
     WriteLogf("Creating Unity Texture2D from %s (%d bytes)", fileName.c_str(), (int)imageData.size());
     
     void* domain = il2cpp_domain_get();
     if (!domain) return nullptr;
-    
-    size_t assemblyCount = 0;
-    void** assemblies = (void**)il2cpp_domain_get_assemblies(domain, &assemblyCount);
-    if (!assemblies) return nullptr;
-    
-    void* texture2DClass = nullptr;
-    void* imageConversionClass = nullptr;
-    
-    // Find required classes
-    for (size_t i = 0; i < assemblyCount; i++) {
-        void* assembly = assemblies[i];
-        if (!assembly) continue;
+
+    try {
+        size_t assemblyCount = 0;
+        void** assemblies = (void**)il2cpp_domain_get_assemblies(domain, &assemblyCount);
+        if (!assemblies) return nullptr;
+
+        void* texture2DClass = nullptr;
+        void* imageConversionClass = nullptr;
         
-        void* image = il2cpp_assembly_get_image(assembly);
-        if (!image) continue;
+        // 查找所需的类（保持原有逻辑）
+        for (size_t i = 0; i < assemblyCount; i++) {
+            void* assembly = assemblies[i];
+            if (!assembly) continue;
+            
+            void* image = il2cpp_assembly_get_image(assembly);
+            if (!image) continue;
+            
+            if (!texture2DClass) {
+                texture2DClass = il2cpp_class_from_name(image, "UnityEngine", "Texture2D");
+            }
+            if (!imageConversionClass) {
+                imageConversionClass = il2cpp_class_from_name(image, "UnityEngine", "ImageConversion");
+            }
+            
+            if (texture2DClass && imageConversionClass) break;
+        }
         
         if (!texture2DClass) {
-            texture2DClass = il2cpp_class_from_name(image, "UnityEngine", "Texture2D");
-        }
-        if (!imageConversionClass) {
-            imageConversionClass = il2cpp_class_from_name(image, "UnityEngine", "ImageConversion");
+            WriteLog("Failed to find Texture2D class");
+            return nullptr;
         }
         
-        if (texture2DClass && imageConversionClass) break;
-    }
-    
-    if (!texture2DClass) {
-        WriteLog("Failed to find Texture2D class");
-        return nullptr;
-    }
-    
-    WriteLogf("Found Texture2D class at 0x%p", texture2DClass);
-    
-    // Create a basic Texture2D object and try to initialize it properly
-    void* texture2DObject = il2cpp_object_new(texture2DClass);
-    if (!texture2DObject) {
-        WriteLog("Failed to create Texture2D object");
-        return nullptr;
-    }
-    
-    WriteLogf("Created Texture2D object at 0x%p", texture2DObject);
-    
-    // Try to find and call Texture2D constructor
-    void* ctorMethod = il2cpp_class_get_method_from_name(texture2DClass, ".ctor", 2);
-    if (ctorMethod && il2cpp_runtime_invoke) {
-        WriteLog("Found Texture2D constructor, initializing...");
-        try {
-            // Initialize with 2x2 size, RGBA32 format (4)
-            int width = 2;
-            int height = 2;
-            void* ctorParams[2] = { &width, &height };
-            void* ctorException = nullptr;
-            
-            il2cpp_runtime_invoke(ctorMethod, texture2DObject, ctorParams, &ctorException);
-            if (ctorException) {
-                WriteLogf("Constructor failed: 0x%p", ctorException);
-            } else {
-                WriteLog("Texture2D constructor succeeded");
-            }
-        }
-        catch (...) {
-            WriteLog("Exception during constructor call");
-        }
-    } else {
-        WriteLog("Texture2D constructor not found, using uninitialized object");
-    }
-    
-    // Try to use ImageConversion.LoadImage to load the actual image data
-    if (imageConversionClass) {
-        WriteLogf("Found ImageConversion class at 0x%p", imageConversionClass);
+        WriteLogf("Found Texture2D class at 0x%p", texture2DClass);
         
-        // Find LoadImage method
-        void* loadImageMethod = il2cpp_class_get_method_from_name(imageConversionClass, "LoadImage", 2);
-        if (loadImageMethod) {
-            WriteLogf("Found LoadImage method at 0x%p", loadImageMethod);
-            
-            // Create byte array from image data
-            void* byteClass = nullptr;
-            for (size_t i = 0; i < assemblyCount; i++) {
-                void* assembly = assemblies[i];
-                if (!assembly) continue;
+        // Create a basic Texture2D object and try to initialize it properly
+        void* texture2DObject = il2cpp_object_new(texture2DClass);
+        if (!texture2DObject) {
+            WriteLog("Failed to create Texture2D object");
+            return nullptr;
+        }
+        
+        WriteLogf("Created Texture2D object at 0x%p", texture2DObject);
+        
+        // 先尝试调用构造函数初始化纹理（使用原始代码的方法）
+        void* ctorMethod = il2cpp_class_get_method_from_name(texture2DClass, ".ctor", 2);
+        if (ctorMethod && il2cpp_runtime_invoke) {
+            WriteLog("Found Texture2D constructor, initializing...");
+            try {
+                // 初始化为2x2大小
+                int width = 2;
+                int height = 2;
+                void* ctorParams[2] = { &width, &height };
+                void* ctorException = nullptr;
                 
-                void* image = il2cpp_assembly_get_image(assembly);
-                if (!image) continue;
-                
-                byteClass = il2cpp_class_from_name(image, "System", "Byte");
-                if (byteClass) break;
+                il2cpp_runtime_invoke(ctorMethod, texture2DObject, ctorParams, &ctorException);
+                if (ctorException) {
+                    WriteLogf("Constructor failed: 0x%p", ctorException);
+                } else {
+                    WriteLog("Texture2D constructor succeeded");
+                }
             }
+            catch (...) {
+                WriteLog("Exception during constructor call");
+            }
+        }
+        
+        // Try to use ImageConversion.LoadImage to load the actual image data
+        if (imageConversionClass) {
+            WriteLogf("Found ImageConversion class at 0x%p", imageConversionClass);
             
-            if (byteClass && il2cpp_array_new) {
-                WriteLogf("Creating byte array for %d bytes", (int)imageData.size());
-                void* byteArray = il2cpp_array_new(byteClass, imageData.size());
-                if (byteArray) {
-                    WriteLogf("Created byte array at 0x%p", byteArray);
+            // Find LoadImage method
+            void* loadImageMethod = il2cpp_class_get_method_from_name(imageConversionClass, "LoadImage", 2);
+            if (loadImageMethod) {
+                WriteLogf("Found LoadImage method at 0x%p", loadImageMethod);
+                
+                // 创建字节数组
+                void* byteClass = nullptr;
+                for (size_t i = 0; i < assemblyCount; i++) {
+                    void* assembly = assemblies[i];
+                    if (!assembly) continue;
                     
-                    // Copy image data to IL2CPP array
-                    try {
-                        // IL2CPP array structure: [object header][bounds][length][data...]
-                        // For single dimension arrays: [klass][monitor][bounds][max_length][data...]
-                        unsigned char* arrayData = (unsigned char*)((uintptr_t)byteArray + sizeof(void*) * 4);
-                        memcpy(arrayData, imageData.data(), imageData.size());
-                        WriteLog("Copied image data to IL2CPP array");
+                    void* image = il2cpp_assembly_get_image(assembly);
+                    if (!image) continue;
+                    
+                    byteClass = il2cpp_class_from_name(image, "System", "Byte");
+                    if (byteClass) break;
+                }
+                
+                if (byteClass && il2cpp_array_new) {
+                    WriteLogf("Creating byte array for %d bytes", (int)imageData.size());
+                    void* byteArray = il2cpp_array_new(byteClass, imageData.size());
+                    if (byteArray) {
+                        WriteLogf("Created byte array at 0x%p", byteArray);
                         
-                        // Try different LoadImage method signatures
-                        // First try: LoadImage(Texture2D tex, byte[] data)
-                        if (il2cpp_runtime_invoke) {
-                            void* params[2] = { texture2DObject, byteArray };
-                            void* exception = nullptr;
+                        // 复制图像数据到数组（使用改进的安全方法）
+                        try {
+                            // IL2CPP array structure: [object header][bounds][length][data...]
+                            // For single dimension arrays: [klass][monitor][bounds][max_length][data...]
+                            unsigned char* arrayData = (unsigned char*)((uintptr_t)byteArray + sizeof(void*) * 4);
+                            memcpy(arrayData, imageData.data(), imageData.size());
+                            WriteLog("Copied image data to IL2CPP array");
                             
-                            WriteLog("Calling ImageConversion.LoadImage(tex, data)...");
-                            void* result = il2cpp_runtime_invoke(loadImageMethod, nullptr, params, &exception);
-                            
-                            if (exception) {
-                                WriteLogf("LoadImage(tex, data) failed with exception: 0x%p", exception);
+                            // 尝试不同的LoadImage方法签名（使用原始代码的方法）
+                            if (il2cpp_runtime_invoke) {
+                                void* params[2] = { texture2DObject, byteArray };
+                                void* exception = nullptr;
                                 
-                                // Try alternative method: LoadImage(Texture2D tex, byte[] data, bool markNonReadable)
-                                void* loadImageMethod3 = il2cpp_class_get_method_from_name(imageConversionClass, "LoadImage", 3);
-                                if (loadImageMethod3) {
-                                    WriteLog("Trying LoadImage with 3 parameters...");
-                                    bool markNonReadable = false;
-                                    void* params3[3] = { texture2DObject, byteArray, &markNonReadable };
-                                    exception = nullptr;
+                                WriteLog("Calling ImageConversion.LoadImage(tex, data)...");
+                                void* result = il2cpp_runtime_invoke(loadImageMethod, nullptr, params, &exception);
+                                
+                                if (exception) {
+                                    WriteLogf("LoadImage(tex, data) failed with exception: 0x%p", exception);
                                     
-                                    result = il2cpp_runtime_invoke(loadImageMethod3, nullptr, params3, &exception);
-                                    if (exception) {
-                                        WriteLogf("LoadImage(tex, data, bool) also failed: 0x%p", exception);
-                                    } else {
-                                        WriteLogf("LoadImage(tex, data, bool) succeeded: 0x%p", result);
-                                        WriteLog("*** SUCCESS: Image data loaded into texture! ***");
+                                    // Try alternative method: LoadImage(Texture2D tex, byte[] data, bool markNonReadable)
+                                    void* loadImageMethod3 = il2cpp_class_get_method_from_name(imageConversionClass, "LoadImage", 3);
+                                    if (loadImageMethod3) {
+                                        WriteLog("Trying LoadImage with 3 parameters...");
+                                        bool markNonReadable = false;
+                                        void* params3[3] = { texture2DObject, byteArray, &markNonReadable };
+                                        exception = nullptr;
+                                        
+                                        result = il2cpp_runtime_invoke(loadImageMethod3, nullptr, params3, &exception);
+                                        if (exception) {
+                                            WriteLogf("LoadImage(tex, data, bool) also failed: 0x%p", exception);
+                                        } else {
+                                            WriteLogf("LoadImage(tex, data, bool) succeeded: 0x%p", result);
+                                            WriteLog("*** SUCCESS: Image data loaded into texture! ***");
+                                        }
                                     }
+                                } else {
+                                    WriteLogf("LoadImage returned: 0x%p", result);
+                                    WriteLog("*** SUCCESS: Image data loaded into texture! ***");
                                 }
-                            } else {
-                                WriteLogf("LoadImage returned: 0x%p", result);
-                                WriteLog("*** SUCCESS: Image data loaded into texture! ***");
                             }
                         }
-                    }
-                    catch (...) {
-                        WriteLog("Exception while copying image data");
+                        catch (...) {
+                            WriteLog("Exception while copying image data");
+                        }
+                    } else {
+                        WriteLog("Failed to create byte array");
                     }
                 } else {
-                    WriteLog("Failed to create byte array");
+                    WriteLog("Failed to find Byte class or il2cpp_array_new");
                 }
             } else {
-                WriteLog("Failed to find Byte class or il2cpp_array_new");
+                WriteLog("Failed to find LoadImage method");
             }
         } else {
-            WriteLog("Failed to find LoadImage method");
+            WriteLog("ImageConversion class not found - texture will be empty");
         }
-    } else {
-        WriteLog("ImageConversion class not found - texture will be empty");
+        
+        WriteLog("*** SUCCESS: Custom texture created! ***");
+        return texture2DObject;
+
+    } catch (...) {
+        WriteLog("Exception while copying image data");
+        return nullptr;
     }
-    
-    WriteLog("*** SUCCESS: Custom texture created! ***");
-    return texture2DObject;
 }
 
 // Cache for loaded textures with access time tracking
@@ -825,7 +884,85 @@ void* WINAPI Hooked_AssetBundle_LoadAssetAsync(void* bundle, void* name, void* t
         
         // 添加General Report分析
         AnalyzeGeneralReportAsset(assetName);
-          // 首先检查General Report替换
+        
+        // === 新增：检测视频相关资源 ===
+        if (!assetName.empty()) {
+            // 检测Live Scene相关的资源加载，这可能包含角色信息
+            if (assetName.find("live") != std::string::npos || 
+                assetName.find("scene") != std::string::npos ||
+                assetName.find("character") != std::string::npos ||
+                assetName.find("costume") != std::string::npos ||
+                assetName.find("idol") != std::string::npos) {
+                
+                WriteLog("=== VIDEO/LIVE SCENE ASSET DETECTED ===");
+                WriteLogf("Asset Name: %s", assetName.c_str());
+                WriteLogf("Bundle: 0x%p, Type: 0x%p", bundle, type);
+                
+                // 尝试从资源名称中提取角色信息
+                std::string characterId, idolCardId, costumeId, costumeHeadId;
+                
+                // 解析资源名称中的ID信息
+                // 例如：live_scene_character_001_costume_002
+                size_t charPos = assetName.find("character");
+                size_t costumePos = assetName.find("costume");
+                size_t idolPos = assetName.find("idol");
+                
+                if (charPos != std::string::npos) {
+                    // 提取character后面的数字
+                    size_t numStart = charPos + 9; // "character" 长度
+                    while (numStart < assetName.length() && !isdigit(assetName[numStart])) numStart++;
+                    size_t numEnd = numStart;
+                    while (numEnd < assetName.length() && (isdigit(assetName[numEnd]) || assetName[numEnd] == '_')) numEnd++;
+                    if (numStart < numEnd) {
+                        characterId = assetName.substr(numStart, numEnd - numStart);
+                        // 清理下划线
+                        characterId.erase(std::remove(characterId.begin(), characterId.end(), '_'), characterId.end());
+                    }
+                }
+                
+                if (costumePos != std::string::npos) {
+                    size_t numStart = costumePos + 7; // "costume" 长度
+                    while (numStart < assetName.length() && !isdigit(assetName[numStart])) numStart++;
+                    size_t numEnd = numStart;
+                    while (numEnd < assetName.length() && (isdigit(assetName[numEnd]) || assetName[numEnd] == '_')) numEnd++;
+                    if (numStart < numEnd) {
+                        costumeId = assetName.substr(numStart, numEnd - numStart);
+                        costumeId.erase(std::remove(costumeId.begin(), costumeId.end(), '_'), costumeId.end());
+                    }
+                }
+                
+                if (idolPos != std::string::npos) {
+                    size_t numStart = idolPos + 4; // "idol" 长度
+                    while (numStart < assetName.length() && !isdigit(assetName[numStart])) numStart++;
+                    size_t numEnd = numStart;
+                    while (numEnd < assetName.length() && (isdigit(assetName[numEnd]) || assetName[numEnd] == '_')) numEnd++;
+                    if (numStart < numEnd) {
+                        idolCardId = assetName.substr(numStart, numEnd - numStart);
+                        idolCardId.erase(std::remove(idolCardId.begin(), idolCardId.end(), '_'), idolCardId.end());
+                    }
+                }
+                
+                // 如果提取到了任何信息，就输出
+                if (!characterId.empty() || !costumeId.empty() || !idolCardId.empty()) {
+                    WriteLog("*** VIDEO/LIVE SCENE INFO EXTRACTED ***");
+                    WriteLogf("Character ID: %s", characterId.c_str());
+                    WriteLogf("Idol Card ID: %s", idolCardId.c_str());
+                    WriteLogf("Costume ID: %s", costumeId.c_str());
+                    WriteLogf("Costume Head ID: %s", costumeHeadId.c_str());
+                    WriteLog("========================================");
+                    
+                    // 同时输出到控制台
+                    WriteLogfConsole("*** VIDEO INFO: CharID=%s, IdolCardID=%s, CostumeID=%s ***", 
+                                     characterId.c_str(), idolCardId.c_str(), costumeId.c_str());
+                } else {
+                    WriteLogf("Video-related asset detected but no ID info extracted: %s", assetName.c_str());
+                }
+                
+                WriteLog("=========================================");
+            }
+        }
+        
+        // 首先检查General Report替换
         std::string replacementPath;
         if (ShouldReplaceGeneralReport(assetName, replacementPath)) {
             WriteLogf("*** GENERAL_REPORT REPLACEMENT DETECTED! ***");
@@ -954,6 +1091,7 @@ void* WINAPI Hooked_AssetBundleRequest_GetResult(void* request) {
             g_pendingComicReplacements.erase(it);
             
             WriteLogf("*** SUCCESS: Returning custom texture: 0x%p ***", customTexture);
+            WriteLogfConsole("*** SUCCESS: Texture replacement applied ***");
             return customTexture;
         }
         
@@ -991,7 +1129,7 @@ void* WINAPI Hooked_Resources_Load(void* path, void* type) {
 
 // Install hooks
 bool InstallComicHooks() {
-    WriteLog("Installing XINPUT comic + general_report + UI_buttons + tutorial replacement hooks (Optimized)...");
+    WriteLog("Installing XINPUT comic + general_report + UI_buttons + tutorial + video replacement hooks (Optimized)...");
     
     if (!InitializeIL2CPPApi()) {
         WriteLog("Failed to initialize IL2CPP API");
@@ -1037,6 +1175,14 @@ bool InstallComicHooks() {
                 hookCount++;
             }
         }
+    }
+    
+    // 尝试安装视频相关的 Hook
+    if (InstallVideoHooks()) {
+        WriteLog("Video/Live scene hooks installed successfully");
+        hookCount++;
+    } else {
+        WriteLog("Video hooks installation skipped (requires manual address setup)");
     }    // 尝试获取Unity Object.DestroyImmediate函数
     Unity_DestroyImmediate = (Unity_DestroyImmediate_t)FindIL2CPPMethod("UnityEngine.CoreModule.dll", "UnityEngine", "Object", "DestroyImmediate", 1);
     if (Unity_DestroyImmediate) {
@@ -1099,22 +1245,24 @@ DWORD WINAPI ComicHookInstallThread(LPVOID lpParam) {
     if (!IsTargetGameProcess()) {
         WriteLog("ABORT: Hook thread started in wrong process");
         return 0;
-    }    WriteLog("=== XINPUT Comic + General Report + UI_Buttons + Tutorial Replacement System Starting (Optimized) ===");
+    }    WriteLog("=== XINPUT Comic + General Report + UI_Buttons + Tutorial + Video Replacement System Starting (Optimized) ===");
     
     // Load configuration
     LoadComicMappings();
     
     WriteLog("Waiting for optimal hook timing...");
-    Sleep(25000); // Wait 25 seconds for full game initialization
+    Sleep(5000); // Wait 10 seconds for full game initialization
     
-    WriteLog("=== Installing XINPUT Comic + General Report + UI_Buttons + Tutorial Hooks (Optimized) ===");
+    WriteLog("=== Installing XINPUT Comic + General Report + UI_Buttons + Tutorial + Video Hooks (Optimized) ===");
     
     if (InstallComicHooks()) {
-        WriteLog("XINPUT Comic + General Report + UI_Buttons + Tutorial hooks installed successfully! (Optimized)");
-        WriteLog("Comic, General Report, UI Buttons and Tutorial replacement is now ACTIVE! (Only monitors configured assets)");
+        WriteLog("XINPUT Comic + General Report + UI_Buttons + Tutorial + Video hooks installed successfully! (Optimized)");
+        WriteLog("Comic, General Report, UI Buttons, Tutorial replacement and Video logging is now ACTIVE! (Only monitors configured assets)");
+        WriteLogConsole("*** Gakumas Texture Replacement + Video Logging System ACTIVE ***");
         g_hooksInstalled = true;
     } else {
-        WriteLog("Failed to install XINPUT comic + general report + UI buttons + tutorial hooks");
+        WriteLog("Failed to install XINPUT comic + general report + UI buttons + tutorial + video hooks");
+        WriteLogConsole("*** ERROR: Failed to install texture replacement + video logging hooks ***");
     }
       WriteLog("=== XINPUT Hook Installation Thread Completed ===");
     return 0;
@@ -1159,11 +1307,14 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
             InitializeLogFile();
             
             WriteLog("=================================");
-            WriteLog("Gakumas Comic + General Report + UI + Tutorial Replacement - XInput Optimized Version");
+            WriteLog("Gakumas Comic + General Report + UI + Tutorial + Video Replacement - XInput Optimized Version");
             WriteLog("Target process: gakumas.exe");
             WriteLog("Only monitors configured assets for better performance");
             WriteLogf("Base directory: %s", g_baseDir.c_str());
             WriteLog("=================================");
+            
+            WriteLogConsole("Gakumas Texture Replacement + Video Logging System Loading...");
+            WriteLogConsole("Only successful replacements will be shown in console");
             
             if (g_hOriginalXInput) {
                 WriteLog("Original xinput1_3.dll loaded successfully");

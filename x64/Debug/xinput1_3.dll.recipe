@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Games\gakumas\dump_dll_research\x64\Debug\xinput1_3.dll</FullPath>
+      <FullPath>D:\GIT\gakumas-texture-TL\x64\Debug\xinput1_3.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

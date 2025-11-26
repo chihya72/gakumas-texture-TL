@@ -1,0 +1,675 @@
+[7:8:3] === Gakumas Texture Replacement (IL2CPP Resolver) ===
+[7:8:3] Starting initialization...
+[7:8:3] MinHook initialized
+[7:8:6] IL2CPP initialized successfully
+[7:8:6] Mapped: img_general_comic_0001 -> gakumas-local-texture/comic/1ko/img_general_comic_0001.png
+[7:8:6] Mapped: img_general_comic_0002 -> gakumas-local-texture/comic/1ko/img_general_comic_0002.png
+[7:8:6] Mapped: img_general_comic_0003 -> gakumas-local-texture/comic/1ko/img_general_comic_0003.png
+[7:8:6] Mapped: img_general_comic_0004 -> gakumas-local-texture/comic/1ko/img_general_comic_0004.png
+[7:8:6] Mapped: img_general_comic_0005 -> gakumas-local-texture/comic/1ko/img_general_comic_0005.png
+[7:8:6] Mapped: img_general_comic_0006 -> gakumas-local-texture/comic/1ko/img_general_comic_0006.png
+[7:8:6] Mapped: img_general_comic4_0000 -> gakumas-local-texture/comic/4ko/img_general_comic4_0000.png
+[7:8:6] Mapped: img_general_comic4_0001 -> gakumas-local-texture/comic/4ko/img_general_comic4_0001.png
+[7:8:6] Mapped: img_general_comic4_0002 -> gakumas-local-texture/comic/4ko/img_general_comic4_0002.png
+[7:8:6] Mapped: img_general_comic4_0003 -> gakumas-local-texture/comic/4ko/img_general_comic4_0003.png
+[7:8:6] Mapped: img_general_comic4_0004 -> gakumas-local-texture/comic/4ko/img_general_comic4_0004.png
+[7:8:6] Mapped: img_general_comic4_0005 -> gakumas-local-texture/comic/4ko/img_general_comic4_0005.png
+[7:8:6] Mapped: img_general_comic4_0006 -> gakumas-local-texture/comic/4ko/img_general_comic4_0006.png
+[7:8:6] Mapped: img_general_comic4_0007 -> gakumas-local-texture/comic/4ko/img_general_comic4_0007.png
+[7:8:6] Mapped: img_general_comic4_0008 -> gakumas-local-texture/comic/4ko/img_general_comic4_0008.png
+[7:8:6] Mapped: img_general_comic4_0009 -> gakumas-local-texture/comic/4ko/img_general_comic4_0009.png
+[7:8:6] Mapped: img_general_comic4_0010 -> gakumas-local-texture/comic/4ko/img_general_comic4_0010.png
+[7:8:6] Mapped: img_general_comic4_0011 -> gakumas-local-texture/comic/4ko/img_general_comic4_0011.png
+[7:8:6] Mapped: img_general_comic4_0012 -> gakumas-local-texture/comic/4ko/img_general_comic4_0012.png
+[7:8:6] Mapped: img_general_comic4_0013 -> gakumas-local-texture/comic/4ko/img_general_comic4_0013.png
+[7:8:6] Mapped: img_general_comic4_0014 -> gakumas-local-texture/comic/4ko/img_general_comic4_0014.png
+[7:8:6] Mapped: img_general_comic4_0015 -> gakumas-local-texture/comic/4ko/img_general_comic4_0015.png
+[7:8:6] Mapped: img_general_comic4_0000-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0000-thumb.png
+[7:8:6] Mapped: img_general_comic4_0001-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0001-thumb.png
+[7:8:6] Mapped: img_general_comic4_0002-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0002-thumb.png
+[7:8:6] Mapped: img_general_comic4_0003-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0003-thumb.png
+[7:8:6] Mapped: img_general_comic4_0004-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0004-thumb.png
+[7:8:6] Mapped: img_general_comic4_0005-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0005-thumb.png
+[7:8:6] Mapped: img_general_comic4_0006-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0006-thumb.png
+[7:8:6] Mapped: img_general_comic4_0007-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0007-thumb.png
+[7:8:6] Mapped: img_general_comic4_0008-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0008-thumb.png
+[7:8:6] Mapped: img_general_comic4_0009-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0009-thumb.png
+[7:8:6] Mapped: img_general_comic4_0010-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0010-thumb.png
+[7:8:6] Mapped: img_general_comic4_0011-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0011-thumb.png
+[7:8:6] Mapped: img_general_comic4_0012-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0012-thumb.png
+[7:8:6] Mapped: img_general_comic4_0013-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0013-thumb.png
+[7:8:6] Mapped: img_general_comic4_0014-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0014-thumb.png
+[7:8:6] Mapped: img_general_comic4_0015-thumb -> gakumas-local-texture/comic/4ko/img_general_comic4_0015-thumb.png
+[7:8:6] Mapped: img_general_report_akapen_amao-001 -> gakumas-local-texture/general_report/amao/img_general_report_akapen_amao-001.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-001 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-001.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-002 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-002.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-003 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-003.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-004 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-004.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-005 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-005.png
+[7:8:6] Mapped: img_general_report_akapen_hmsz-006 -> gakumas-local-texture/general_report/hmsz/img_general_report_akapen_hmsz-006.png
+[7:8:6] Mapped: img_general_report_bg_graph_hmsz-001 -> gakumas-local-texture/general_report/hmsz/img_general_report_bg_graph_hmsz-001.png
+[7:8:6] Mapped: img_general_report_text_hmsz-001 -> gakumas-local-texture/general_report/hmsz/img_general_report_text_hmsz-001.png
+[7:8:6] Mapped: img_general_report_text_hmsz-002 -> gakumas-local-texture/general_report/hmsz/img_general_report_text_hmsz-002.png
+[7:8:6] Mapped: img_general_report_text_hmsz-003 -> gakumas-local-texture/general_report/hmsz/img_general_report_text_hmsz-003.png
+[7:8:6] Mapped: img_general_ui_produce-1_btn -> gakumas-local-texture/ui/button/img_general_ui_produce-1_btn.png
+[7:8:6] Mapped: img_general_ui_produce-1_btn-small -> gakumas-local-texture/ui/button/img_general_ui_produce-1_btn-small.png
+[7:8:6] Mapped: img_general_ui_produce-2_btn -> gakumas-local-texture/ui/button/img_general_ui_produce-2_btn.png
+[7:8:6] Mapped: img_general_ui_produce-2_btn-small -> gakumas-local-texture/ui/button/img_general_ui_produce-2_btn-small.png
+[7:8:6] Mapped: img_general_ui_produce-3_btn-small -> gakumas-local-texture/ui/button/img_general_ui_produce-3_btn-small.png
+[7:8:6] Mapped: img_general_ui_produce-nia_btn -> gakumas-local-texture/ui/button/img_general_ui_produce-nia_btn.png
+[7:8:6] Mapped: img_general_ui_produce-nia-2_btn -> gakumas-local-texture/ui/button/img_general_ui_produce-nia-2_btn.png
+[7:8:6] Mapped: img_tutorial_produce_01_first-001 -> gakumas-local-texture/tutorial/img_tutorial_produce_01_first-001.png
+[7:8:6] Mapped: produce_button_text -> gakumas-local-texture/sprites/produce_button_text.png
+[7:8:6] Loaded 58 texture mappings
+[7:8:6] Found executable address via +0 offset: 0x140729866345232
+[7:8:6] *** Successfully hooked AssetBundle.LoadAssetAsync (original method) ***
+[7:8:6] Found executable address via +0 offset: 0x140729866344320
+[7:8:6] Successfully hooked AssetBundleRequest.GetResult
+[7:8:6] Hook installation completed: 2/2 hooks installed
+[7:8:6] Initialization completed successfully!
+[7:8:6] *** Waiting for game to call AssetBundle methods... ***
+[7:8:20] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:20] AssetBundle.LoadAssetAsync called with: img_general_comic_0010
+[7:8:20] Stored request mapping: 0x2102094714880 -> img_general_comic_0010
+[7:8:20] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:20] AssetBundle.LoadAssetAsync called with: img_sd_hrnm_cmmn-00
+[7:8:20] Stored request mapping: 0x2102094714752 -> img_sd_hrnm_cmmn-00
+[7:8:20] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:20] AssetBundle.LoadAssetAsync called with: img_sd_hrnm_cmmn-01
+[7:8:20] Stored request mapping: 0x2102094714624 -> img_sd_hrnm_cmmn-01
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] *** Found asset name from request mapping: img_general_comic_0010 ***
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] No request mapping found for this request
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] *** Found asset name from request mapping: img_sd_hrnm_cmmn-00 ***
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] No request mapping found for this request
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] *** Found asset name from request mapping: img_sd_hrnm_cmmn-01 ***
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] No request mapping found for this request
+[7:8:20] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:20] AssetBundle.LoadAssetAsync called with: img_general_ui_monitor_notepc-1
+[7:8:20] Stored request mapping: 0x2102068055616 -> img_general_ui_monitor_notepc-1
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] *** Found asset name from request mapping: img_general_ui_monitor_notepc-1 ***
+[7:8:20] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:20] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:20] Could not get object name from result object, checking request mapping...
+[7:8:20] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_env_grp_home_boards_normal-00
+[7:8:22] Stored request mapping: 0x2102342395648 -> mdl_env_grp_home_boards_normal-00
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_hmsz-cstm-0011_body
+[7:8:22] Stored request mapping: 0x2102342395520 -> mdl_chr_hmsz-cstm-0011_body
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_hmsz-cstm-0011_face
+[7:8:22] Stored request mapping: 0x2102342395392 -> mdl_chr_hmsz-cstm-0011_face
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_hmsz-cstm-0011_hair
+[7:8:22] Stored request mapping: 0x2102342395264 -> mdl_chr_hmsz-cstm-0011_hair
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_amao-casl-0001_body
+[7:8:22] Stored request mapping: 0x2102342395072 -> mdl_chr_amao-casl-0001_body
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_amao-base-0000_face
+[7:8:22] Stored request mapping: 0x2102342394688 -> mdl_chr_amao-base-0000_face
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_amao-cstm-0035_hair
+[7:8:22] Stored request mapping: 0x2102342394560 -> mdl_chr_amao-cstm-0035_hair
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_fktn-cstm-0112_body
+[7:8:22] Stored request mapping: 0x2102342393856 -> mdl_chr_fktn-cstm-0112_body
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_env_grp_home_boards_normal-00 ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_hmsz-cstm-0011_body ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_hmsz-cstm-0011_face ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_hmsz-cstm-0011_hair ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_amao-casl-0001_body ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_amao-base-0000_face ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_amao-cstm-0035_hair ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_fktn-cstm-0112_body ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_fktn-base-0000_face
+[7:8:22] Stored request mapping: 0x2102065147200 -> mdl_chr_fktn-base-0000_face
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_fktn-cstm-0112_hair
+[7:8:22] Stored request mapping: 0x2102065146432 -> mdl_chr_fktn-cstm-0112_hair
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_kllj-cstm-0053_body
+[7:8:22] Stored request mapping: 0x2102065146304 -> mdl_chr_kllj-cstm-0053_body
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_kllj-base-0000_face
+[7:8:22] Stored request mapping: 0x2102065146176 -> mdl_chr_kllj-base-0000_face
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_chr_kllj-base-0000_hair
+[7:8:22] Stored request mapping: 0x2102065146048 -> mdl_chr_kllj-base-0000_hair
+[7:8:22] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:22] AssetBundle.LoadAssetAsync called with: mdl_prp_smartphone-kllj-00_smartphone
+[7:8:22] Stored request mapping: 0x2102065145920 -> mdl_prp_smartphone-kllj-00_smartphone
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_fktn-base-0000_face ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_fktn-cstm-0112_hair ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_kllj-cstm-0053_body ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_kllj-base-0000_face ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_chr_kllj-base-0000_hair ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] *** Found asset name from request mapping: mdl_prp_smartphone-kllj-00_smartphone ***
+[7:8:22] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:22] GetResult returned an object (class ptr: 0x2093822568528)
+[7:8:22] Could not get object name from result object, checking request mapping...
+[7:8:22] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_all_chr_hmsz_idle-001_pose
+[7:8:23] Stored request mapping: 0x2102339086016 -> mot_all_chr_hmsz_idle-001_pose
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_all_chr_hmsz_idle-001_pose ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_prod_chr_cmmn_backidle-ac-002_pose
+[7:8:23] Stored request mapping: 0x2102332246912 -> mot_prod_chr_cmmn_backidle-ac-002_pose
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_home_chr_cmmn_sit-d-001-2_lp
+[7:8:23] Stored request mapping: 0x2102099385024 -> mot_home_chr_cmmn_sit-d-001-2_lp
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_prod_chr_cmmn_backidle-ac-002_pose ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_home_chr_cmmn_sit-d-001-2_lp ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_home_chr_cmmn_sit-001_lp
+[7:8:23] Stored request mapping: 0x2102093796160 -> mot_home_chr_cmmn_sit-001_lp
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_prod_chr_cmmn_backidle-b-001_pose
+[7:8:23] Stored request mapping: 0x2102062213184 -> mot_prod_chr_cmmn_backidle-b-001_pose
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_all_chr_hmsz_idle-001_in
+[7:8:23] Stored request mapping: 0x2102057748928 -> mot_all_chr_hmsz_idle-001_in
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_home_chr_cmmn_sit-001_lp ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_prod_chr_cmmn_backidle-b-001_pose ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_all_chr_hmsz_idle-001_in ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: mot_home_chr_cmmn_sit-d-001-1_lp
+[7:8:23] Stored request mapping: 0x2102051455744 -> mot_home_chr_cmmn_sit-d-001-1_lp
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: mot_home_chr_cmmn_sit-d-001-1_lp ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093865990704)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_home_shop_pack_item-0047
+[7:8:23] Stored request mapping: 0x2102542028928 -> img_general_home_shop_pack_item-0047
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_home_campaign_dearness-event-001
+[7:8:23] Stored request mapping: 0x2102542028800 -> img_general_home_campaign_dearness-event-001
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_home_gasha_gasha-00450-pickup-001
+[7:8:23] Stored request mapping: 0x2102540222336 -> img_general_home_gasha_gasha-00450-pickup-001
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_icon_contest-rank-large_6
+[7:8:23] Stored request mapping: 0x2102540222208 -> img_general_icon_contest-rank-large_6
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-select-m
+[7:8:23] Stored request mapping: 0x2102540222080 -> img_gasha_banner_gasha-00450-pickup-001-select-m
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-select-s
+[7:8:23] Stored request mapping: 0x2102540221952 -> img_gasha_banner_gasha-00450-pickup-001-select-s
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-logo
+[7:8:23] Stored request mapping: 0x2102540221824 -> img_gasha_banner_gasha-00450-pickup-001-logo
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] Stored request mapping: 0x2102540221696 -> img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] Stored request mapping: 0x2102540221568 -> img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] Stored request mapping: 0x2102540221440 -> img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-select-m
+[7:8:23] Stored request mapping: 0x2102540221312 -> img_gasha_banner_gasha-00450-pickup-001-select-m
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-select-s
+[7:8:23] Stored request mapping: 0x2102540221184 -> img_gasha_banner_gasha-00450-pickup-001-select-s
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00450-pickup-001-logo
+[7:8:23] Stored request mapping: 0x2102540221056 -> img_gasha_banner_gasha-00450-pickup-001-logo
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] Stored request mapping: 0x2102540220928 -> img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] Stored request mapping: 0x2102540220800 -> img_gasha_banner_gasha-00000-standard-001-select-m
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] Stored request mapping: 0x2102540220672 -> img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] Stored request mapping: 0x2102540220544 -> img_gasha_banner_gasha-00000-standard-001-select-s
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] Stored request mapping: 0x2102540220416 -> img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] Stored request mapping: 0x2102540220288 -> img_gasha_banner_gasha-00000-standard-002-logo
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_home_shop_pack_item-0047 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_home_campaign_dearness-event-001 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_home_gasha_gasha-00450-pickup-001 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_icon_contest-rank-large_6 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-select-m ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-select-s ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-logo ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-001-select-m ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-001-select-s ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-002-logo ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_item_gacha-ticket-nor-1
+[7:8:23] Stored request mapping: 0x2102540219648 -> img_general_item_gacha-ticket-nor-1
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-select-m ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-select-s ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00450-pickup-001-logo ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-001-select-m ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-001-select-s ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_gasha_banner_gasha-00000-standard-002-logo ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_item_gacha-ticket-nor-1
+[7:8:23] Stored request mapping: 0x2102540219520 -> img_general_item_gacha-ticket-nor-1
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_item_gacha-ticket-nor-1
+[7:8:23] Stored request mapping: 0x2102540219392 -> img_general_item_gacha-ticket-nor-1
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_icon_exam-effect_examstatusenchant
+[7:8:23] Stored request mapping: 0x2102540219264 -> img_general_icon_exam-effect_examstatusenchant
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_skillcard_ido-3_134
+[7:8:23] Stored request mapping: 0x2102540219136 -> img_general_skillcard_ido-3_134
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_pitem_3-158
+[7:8:23] Stored request mapping: 0x2102540219008 -> img_general_pitem_3-158
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_cidol-ssmk-3-012_0-thumb-portrait
+[7:8:23] Stored request mapping: 0x2102540218880 -> img_general_cidol-ssmk-3-012_0-thumb-portrait
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_mov_general_gasha_bg_idol_cidol-ssmk-3-012
+[7:8:23] Stored request mapping: 0x2102540218752 -> img_mov_general_gasha_bg_idol_cidol-ssmk-3-012
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_mission-daily-release_circle-003
+[7:8:23] Stored request mapping: 0x2102540218624 -> img_general_mission-daily-release_circle-003
+[7:8:23] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:23] AssetBundle.LoadAssetAsync called with: img_general_event_dearness-event-001-circle
+[7:8:23] Stored request mapping: 0x2102540218496 -> img_general_event_dearness-event-001-circle
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_item_gacha-ticket-nor-1 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_item_gacha-ticket-nor-1 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_icon_exam-effect_examstatusenchant ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_skillcard_ido-3_134 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_pitem_3-158 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_cidol-ssmk-3-012_0-thumb-portrait ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_mov_general_gasha_bg_idol_cidol-ssmk-3-012 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_mission-daily-release_circle-003 ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] *** Found asset name from request mapping: img_general_event_dearness-event-001-circle ***
+[7:8:23] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:23] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:23] Could not get object name from result object, checking request mapping...
+[7:8:23] No request mapping found for this request
+[7:8:24] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:24] AssetBundle.LoadAssetAsync called with: img_sd_ttmr_cmmn-00
+[7:8:24] Stored request mapping: 0x2105249093504 -> img_sd_ttmr_cmmn-00
+[7:8:24] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:24] AssetBundle.LoadAssetAsync called with: img_sd_ttmr_cmmn-01
+[7:8:24] Stored request mapping: 0x2105249093376 -> img_sd_ttmr_cmmn-01
+[7:8:24] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:24] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:24] Could not get object name from result object, checking request mapping...
+[7:8:24] *** Found asset name from request mapping: img_sd_ttmr_cmmn-00 ***
+[7:8:24] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:24] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:24] Could not get object name from result object, checking request mapping...
+[7:8:24] No request mapping found for this request
+[7:8:24] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:24] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:24] Could not get object name from result object, checking request mapping...
+[7:8:24] *** Found asset name from request mapping: img_sd_ttmr_cmmn-01 ***
+[7:8:24] *** HOOK TRIGGERED: AssetBundleRequest.GetResult ***
+[7:8:24] GetResult returned an object (class ptr: 0x2093823645632)
+[7:8:24] Could not get object name from result object, checking request mapping...
+[7:8:24] No request mapping found for this request
+[7:8:24] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:24] AssetBundle.LoadAssetAsync called with: img_general_ui_produce-group-1_logo
+[7:8:24] Stored request mapping: 0x2102538850944 -> img_general_ui_produce-group-1_logo
+[7:8:24] *** HOOK TRIGGERED: AssetBundle.LoadAssetAsync ***
+[7:8:24] AssetBundle.LoadAssetAsync called with: img_general_ui_produce-1_btn-small
+[7:8:24] Stored request mapping: 0x2102538850816 -> img_general_ui_produce-1_btn-small
+[7:8:24] *** REPLACEMENT DETECTED! ***
+[7:8:24] Original: img_general_ui_produce-1_btn-small
+[7:8:24] Replacement: gakumas-local-texture/ui/button/img_general_ui_produce-1_btn-small.png
+[7:8:24] Loaded texture file: gakumas-local-texture/ui/button/img_general_ui_produce-1_btn-small.png (113098 bytes)
+[7:8:24] Creating Unity Texture2D from gakumas-local-texture/ui/button/img_general_ui_produce-1_btn-small.png (113098 bytes)
+[7:8:24] Found Texture2D class
+[7:8:24] Created Texture2D object
+[7:8:24] Found ImageConversion class
+[7:8:24] Found LoadImage method
+[7:8:24] Creating byte array for 113098 bytes
+[7:8:24] Created byte array
+[7:8:24] Copied image data to IL2CPP array with correct offset
+[7:8:24] Calling ImageConversion.LoadImage...
+[7:8:24] LoadImage failed with exception - trying alternative method
+[7:8:24] Found Texture2D constructor, trying to create 2x2 texture
